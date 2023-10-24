@@ -49,71 +49,12 @@ def open_socket(pico_ip):
     return connection
 
 def webpage():
-    html = f"""
-<!DOCTYPE html>
-<head>
-    <title>Turtle Bot Control Hub</title>
-    <style type="text/css">
-        body {
-            background-color: blue;
-        }
-
-        h1 {
-            color: #54ff93;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        p {
-            color: white;
-        }
-
-        input {
-            font-size: large;
-            background-color: black;
-        }
-    </style>
-</head>
-<body>
-    <h1>Turtle Bot</h1>
-    <form action="./draw1">
-        <input type="submit" value="Draw1"/>
-    </form>
-    <form action="./draw2">
-        <input type="submit" value="Draw2"/>
-    </form>
-    <form action="./draw3">
-        <input type="submit" value="Draw3"/>
-    </form>
-</body>"""
-    return str(html)
+    html = open("index.html", "r")
+    return html.read()
 
 def style():
-    css = f"""
-body {
-    color: black;
-}
-
-h1, h2, h3 {
-    margin: 0%;
-}
-
-h1 {
-    font-size:370%;
-}
-
-header {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
-    margin-bottom: .6%;
-}
-
-input {
-    font-size: large;
-    background-color: cadetblue;
-}
-"""
-    return str(css)
+    css = open("style.css", "r")
+    return css.read()
 
 def serve(connection):
     while True:
