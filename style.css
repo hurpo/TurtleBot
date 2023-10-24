@@ -1,7 +1,19 @@
+header {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-bottom: .6%;
+}
+
 body {
     background-color: #1f1445;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+    color: beige;
 }
 
 h1, h2, h3 {
@@ -14,13 +26,6 @@ h1 {
     font-size:370%;
 }
 
-header {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
-    margin-bottom: .6%;
-}
-
 input {
     font-size: large;
     background-color: cadetblue;
@@ -28,7 +33,57 @@ input {
     color: #111111;
 }
 
-.button_group {
-    margin: 2%;
-    /* float: left; */
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr, th {
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid #4aff86;
+    border-radius: 10%;
+    padding: 1%;
+    color: beige;
+}
+
+.parent {
+    padding: 1rem;
+  }
+
+.child {
+padding: 0.5rem;
+}
+
+.child_inline {
+    padding: 0.5rem;
+    display: inline;
+}
+
+.child_block {
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+.console {
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid #4aff86;
+    border-radius: 5%;
+    text-align: left;
+    width: 400px;
+    height: 300px;
+    color: beige;
+}
+
+.left_info {
+    float: left;
+    border: 1px solid #4aff86;
+    width: 40%;
+    margin-left: 6.66%;
+}
+
+.right_control {
+    float: right;
+    border: 1px solid #4aff86;
+    width: 40%;
+    margin-right: 6.66%;
 }

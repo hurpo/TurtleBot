@@ -3,17 +3,66 @@
     <title>Turtle Bot Control Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<header class="parent">
+    <img class="child_inline"  src="turtle_bot.jpg" width="10%">
+    <h1 style="display: inline-flex; transform: translateY(-50px);" >Turtle Bot Control Hub</h1>
+</header>
 <body>
-    <h1>Turtle Bot</h1>
-    <img src="turtle_bot.jpg"">
-    <div class="button_group">
-        <form action="./draw1">
+    
+    <div class="parent left_info">
+        <h3>Turtle Bot Information</h3>
+        <p>Information on if Turtle Bot is running, what it is drawing, and what specific components are running</p>
+        <table class="child_inline">
+            <tr class="child">
+                <th>Elements</th>
+                <th>Status</th>
+            </tr>
+            <tr class="child">
+                <th>Motor 1</th>
+                <th>{m1_state}</th>
+            </tr>
+            <tr class="child">
+                <th>Motor 2</th>
+                <th>{m2_state}</th>
+            </tr>
+            <tr class="child">
+                <th>Servo</th>
+                <th>{s_state}</th>
+            </tr>
+        </table>
+        <table class="child_inline">
+            <tr class="child">
+                <th>Running?</th>
+                <th>{tbot_state}</th>
+            </tr>
+            <tr class="child">
+                <th>Preset?</th>
+                <th>{p_state}</th>
+            </tr>
+        </table>
+        <h3>Console</h3>
+        <p class="child">The particular commands ran in the running preset will be displayed here.</p>
+        <div class="child_block console">
+        <p class="child_inline">{console}</p>
+        </div>
+    </div>
+    
+    <div class = "parent right_control">
+        <h3>Controls</h3>
+        <form class = "child_inline"  action="./pause">
+            <input type="submit" style="background-color: #eb8817; color: white;" value="PAUSE"/>
+        </form>
+        <form class = "child_inline"  action="./stop">
+            <input type="submit" style="background-color: #fc036f; color: white;" value="STOP"/>
+        </form>
+        <h3>Preset Drawings</h3>
+        <form class = "child_inline"  action="./draw1">
             <input type="submit" value="Draw1"/>
         </form>
-        <form action="./draw2">
+        <form class = "child_inline"  action="./draw2">
             <input type="submit" value="Draw2"/>
         </form>
-        <form action="./draw3">
+        <form class = "child_inline"  action="./draw3">
             <input type="submit" value="Draw3"/>
         </form>
     </div>
