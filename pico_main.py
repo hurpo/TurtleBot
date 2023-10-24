@@ -51,7 +51,11 @@ def open_socket(pico_ip):
 def webpage():
     html = open("./index.html", "r")
     html_data = html.read()
-    html_data = html_data.replace('{m1_state}', 'HELLO!')
+    html_data = html_data.replace('{m1_state}', 'OFF')
+    html_data = html_data.replace('{m2_state}', 'OFF')
+    html_data = html_data.replace('{s_state}', 'OFF')
+    html_data = html_data.replace('{tbot_state}', 'OFF')
+    html_data = html_data.replace('{p_state}', 'NONE')
     return html_data
 
 def style():
