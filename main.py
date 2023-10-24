@@ -49,12 +49,12 @@ def open_socket(pico_ip):
     return connection
 
 def webpage():
-    html = open("index.html", "r")
+    html = open("./index.html", "r")
     return html.read()
 
 def style():
     css = open("style.css", "r")
-    return css.read()
+    return css.read() 
 
 def serve(connection):
     while True:
