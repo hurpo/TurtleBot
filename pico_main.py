@@ -84,6 +84,13 @@ def serve(connection):
         #client.send(css)
         client.close()
 
+##### Pen Functions #####
+def penup():
+    pass
+
+def pendown():
+    pass
+
 ##### Moving Functions #####
 
 def forward(multiplier):
@@ -175,6 +182,67 @@ def draw2():
 def draw3():
     forward(2)
     backward(7)
+
+def ieee_logo(a):
+    # I
+    forward(a)
+    right_middle_axis(90)
+    forward(a)
+    left_middle_axis(90)
+    forward(3*a)
+    left_middle_axis(90)
+    forward(a)
+    right_middle_axis(90)
+    forward(a)
+    right_middle_axis(90)
+    forward(2.5*a)
+    right_middle_axis(90)
+    forward(a)
+    right_middle_axis(90)
+    forward(a)
+    left_middle_axis(90)
+    forward(3*a)
+    left_middle_axis(90)
+    forward(a)
+    right_middle_axis(90)
+    forward(a)
+    right_middle_axis(90)
+    forward(2.5*a)
+    penup()
+    right_middle_axis(180)
+
+    # 3 E's
+    for i in range(3):
+        forward(2*a)
+        pendown()
+        forward(1.5 * a)
+        left_middle_axis(90)
+        forward(a)
+        left_middle_axis(90)
+        forward(a)
+        right_middle_axis(90)
+        forward(a)
+        right_middle_axis(90)
+        forward(a)
+        left_middle_axis(90)
+        forward(a)
+        left_middle_axis(90)
+        forward(a)
+        right_middle_axis(90)
+        forward(a)
+        right_middle_axis(90)
+        forward(a)
+        right_middle_axis(90)
+        forward(a)
+        left_middle_axis(90)
+        forward(a)
+        left_middle_axis(90)
+        forward(1.5 * a)
+        left_middle_axis(90)
+        forward(5 * a)
+        penup()
+        left_middle_axis(90)
+    
 
 try:
     pico_ip = connect()

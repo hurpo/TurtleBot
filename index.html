@@ -3,94 +3,105 @@
     <title>Turtle Bot Control Hub</title>
     <style type="text/css">
         header {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
-    margin-bottom: .6%;
-}
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 5%;
+            margin-bottom: .6%;
+        }
 
-body {
-    background-color: #1f1445;
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-}
+        body {
+            background-color: #1f1445;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
 
-p {
-    font-family: 'Courier New', Courier, monospace;
-    color: beige;
-}
+        p {
+            font-family: 'Courier New', Courier, monospace;
+            color: beige;
+        }
 
-h1, h2, h3 {
-    margin: 2%;
-    font-family: 'Courier New', Courier, monospace;
-    color: #4aff86;
-}
+        h1, h2, h3 {
+            margin: 2%;
+            font-family: 'Courier New', Courier, monospace;
+            color: #4aff86;
+        }
 
-h1 {
-    font-size:370%;
-}
+        h1 {
+            font-size:370%;
+        }
 
-input {
-    font-size: large;
-    background-color: cadetblue;
-    font-family: 'Courier New', Courier, monospace;
-    color: #111111;
-}
+        input {
+            font-size: large;
+            background-color: cadetblue;
+            font-family: 'Courier New', Courier, monospace;
+            color: #111111;
+        }
 
-table {
-    margin-left: auto;
-    margin-right: auto;
-}
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2%;
+        }
 
-tr, th {
-    font-family: 'Courier New', Courier, monospace;
-    border: 1px solid #4aff86;
-    border-radius: 10%;
-    padding: 1%;
-    color: beige;
-}
+        tr, th {
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid #4aff86;
+            border-radius: 10%;
+            padding: 1%;
+            color: beige;
+            width: 80px;
+        }
 
-.parent {
-    padding: 1rem;
-  }
+        .parent {
+            padding: 1rem;
+        }
 
-.child {
-padding: 0.5rem;
-}
+        .child {
+        padding: 0.5rem;
+        }
 
-.child_inline {
-    padding: 0.5rem;
-    display: inline;
-}
+        .child_inline {
+            padding: 0.5rem;
+            display: inline;
+        }
 
-.child_block {
-    padding: 0.5rem;
-    display: inline-block;
-}
+        .child_block {
+            padding: 0.5rem;
+            display: inline-block;
+        }
 
-.console {
-    font-family: 'Courier New', Courier, monospace;
-    border: 1px solid #4aff86;
-    border-radius: 5%;
-    text-align: left;
-    width: 400px;
-    height: 300px;
-    color: beige;
-}
+        .console {
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid #4aff86;
+            border-radius: 5%;
+            text-align: left;
+            width: 400px;
+            height: 300px;
+            color: beige;
+        }
 
-.left_info {
-    float: left;
-    border: 1px solid #4aff86;
-    width: 40%;
-    margin-left: 6.66%;
-}
+        .left_info {
+            float: left;
+            border: 1px solid #4aff86;
+            width: 40%;
+            margin-left: 6.66%;
+        }
 
-.right_control {
-    float: right;
-    border: 1px solid #4aff86;
-    width: 40%;
-    margin-right: 6.66%;
-}
+        .right_control {
+            float: right;
+            border: 1px solid #4aff86;
+            width: 40%;
+            margin-right: 6.66%;
+        }
+
+        .table_name {
+            background-color: #4aff86;
+            color: #1f1445;
+        }
+
+        .time_keep {
+            width: 280px;
+        }
 
     </style>
 </head>
@@ -99,42 +110,47 @@ padding: 0.5rem;
     <h1 style="display: inline-flex; transform: translateY(-50px);" >Turtle Bot Control Hub</h1>
 </header>
 <body>
-    
     <div class="parent left_info">
         <h3>Turtle Bot Information</h3>
         <p>Information on if Turtle Bot is running, what it is drawing, and what specific components are running</p>
         <table class="child_inline">
             <tr class="child">
-                <th>Elements</th>
-                <th>Status</th>
+                <th class="table_name">Elements</th>
+                <th class="table_name">Status</th>
             </tr>
             <tr class="child">
-                <th>Motor 1</th>
-                <th>{m1_state}</th>
+                <th class="table_name">Motor 1</th>
+                <th id ="m1_state">{m1_state}</th>
             </tr>
             <tr class="child">
-                <th>Motor 2</th>
-                <th>{m2_state}</th>
+                <th class="table_name">Motor 2</th>
+                <th id ="m2_state">{m2_state}</th>
             </tr>
             <tr class="child">
-                <th>Servo</th>
-                <th>{s_state}</th>
+                <th class="table_name">Servo</th>
+                <th id ="s_state">{s_state}</th>
             </tr>
         </table>
         <table class="child_inline">
             <tr class="child">
-                <th>Running?</th>
-                <th>{tbot_state}</th>
+                <th class="table_name">Running?</th>
+                <th id ="tbot_state">{tbot_state}</th>
             </tr>
             <tr class="child">
-                <th>Preset?</th>
-                <th>{p_state}</th>
+                <th class="table_name">Preset?</th>
+                <th id ="p_state">{p_state}</th>
+            </tr>
+        </table>
+        <table>
+            <tr class="child">
+                <th class="table_name">Runtime</th>
+                <th class="time_keep" id ="rt">{runtime}</th>
             </tr>
         </table>
         <h3>Console</h3>
         <p class="child">The particular commands ran in the running preset will be displayed here.</p>
         <div class="child_block console">
-        <p class="child_inline">{console}</p>
+        <p id="console" class="child_inline"></p>
         </div>
     </div>
     
@@ -157,4 +173,50 @@ padding: 0.5rem;
             <input type="submit" value="Draw3"/>
         </form>
     </div>
+
+    <script>
+        let m1, m2, s, tbot, p, runtime;
+        let con = "Information: ";
+        m1 = 0;
+        m2 = 0;
+        s = "Pen Up";
+        tbot = "Running";
+        p = "None";
+        runtime = 0;
+
+        let console_feed = [    ]
+    
+        function time_keep() {
+            if (tbot == "Running") {
+                runtime = runtime + 1;
+            }
+        }
+
+        function update_console() {
+            if (tbot == "Running") {
+                console_feed.push(con + runtime +"<br>")
+                document.getElementById("console").innerHTML = console_feed;
+
+                if (console_feed.length > 15) {
+                    console_feed.splice(0, 1);
+                }
+            }
+        }
+
+
+        function update_values() {
+            document.getElementById("m1_state").innerHTML = m1;
+            document.getElementById("m2_state").innerHTML = m2;
+            document.getElementById("s_state").innerHTML = s;
+            document.getElementById("tbot_state").innerHTML = tbot;
+            document.getElementById("p_state").innerHTML = p;
+            document.getElementById("rt").innerHTML = runtime + " s";
+
+            time_keep() 
+            update_console()
+        }
+    
+        window.setInterval(update_values, 1000);
+    </script>   
+    
 </body>
