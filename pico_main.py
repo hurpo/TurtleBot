@@ -30,11 +30,12 @@ def open_socket(pico_ip):
 def webpage():
     html = open("./index.html", "r")
     html_data = html.read()
-    html_data = html_data.replace('{m1_state}', 'OFF')
-    html_data = html_data.replace('{m2_state}', 'OFF')
-    html_data = html_data.replace('{s_state}', 'OFF')
-    html_data = html_data.replace('{tbot_state}', 'OFF')
-    html_data = html_data.replace('{p_state}', 'NONE')
+    html_data = html_data.replace('{m1_state}', m1)
+    html_data = html_data.replace('{m2_state}', m2)
+    html_data = html_data.replace('{s_state}', s)
+    html_data = html_data.replace('{tbot_state}', tbot)
+    html_data = html_data.replace('{p_state}', p)
+    html_data = html_data.replace('{Console_Feed}', con_f)
     return html_data
 
 def style():
@@ -64,19 +65,37 @@ def serve(connection):
         client.close()
 
 def draw1():
+    global tbot, p
+    tbot = "RUNNING"
+    p = "Draw 1"
     forward(10)
     backward(5)
+    tbot = "IDLE"
+    p = "NONE"
     
 def draw2():
+    global tbot, p
+    tbot = "RUNNING"
+    p = "Draw 2"
     forward(5)
     backward(5)
     forward(5)
+    tbot = "IDLE"
+    p = "NONE"
 
 def draw3():
+    global tbot, p
+    tbot = "RUNNING"
+    p = "Draw 3"
     forward(2)
     backward(7)
+    tbot = "IDLE"
+    p = "NONE"
 
 def ieee_logo(a):
+    global tbot, p
+    tbot = "RUNNING"
+    p = "IEEE Logo"
     # I
     forward(a)
     right_middle_axis(90)
@@ -135,6 +154,8 @@ def ieee_logo(a):
         forward(5 * a)
         penup()
         left_middle_axis(90)
+    tbot = "IDLE"
+    p = "NONE"
     
 
 try:

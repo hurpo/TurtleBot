@@ -176,7 +176,7 @@
 
     <script>
         let m1, m2, s, tbot, p, runtime;
-        let con = "Information: ";
+        let con = "{Console_Feed}";
         m1 = 0;
         m2 = 0;
         s = "Pen Up";
@@ -194,7 +194,7 @@
 
         function update_console() {
             if (tbot == "Running") {
-                console_feed.push(con + runtime +"<br>")
+                console_feed.push(runtime + ": " + con +"<br>")
                 document.getElementById("console").innerHTML = console_feed;
 
                 if (console_feed.length > 15) {
