@@ -1,10 +1,18 @@
 from machine import Pin, PWM
+import utime
 
 motor1 = [
     Pin(15, Pin.OUT),
     Pin(14, Pin.OUT),
     Pin(16, Pin.OUT),
     Pin(17, Pin.OUT),
+    ]
+
+motor2 = [
+    Pin(12, Pin.OUT),
+    Pin(13, Pin.OUT),
+    Pin(18, Pin.OUT),
+    Pin(19, Pin.OUT),
     ]
 
 forward_seq = [
@@ -35,16 +43,13 @@ def forward(multiplier):
     # Motor 1
     for x in range(ticks_per_icnh * multiplier): # 6cm diameter wheel, circum. is 18.85 cm
         for step in forward_seq:
+
             for i in range(len(motor1)):
                 motor1[i].value(step[i])
                 utime.sleep(0.001)
-    
-#     # Motor 2. Not Real yet
-#     for x in range(513 * multiplier): # 6cm diameter wheel, circum. is 18.85 cm
-#         for step in forward_seq:
-#             for i in range(len(motor2)):
-#                 motor1[i].value(step[i])
-#                 utime.sleep(0.001)
+
+                motor2[i].value(step[3-i])
+                utime.sleep(0.001)
 
 def backward(multiplier):
     # Motor 1
@@ -53,13 +58,10 @@ def backward(multiplier):
             for i in range(len(motor1)):
                 motor1[i].value(step[i])
                 utime.sleep(0.001)
-    
-#     # Motor 2. Not Real yet
-#     for x in range(513 * multiplier): # 6cm diameter wheel, circum. is 18.85 cm
-#         for step in backward_seq:
-#             for i in range(len(motor2)):
-#                 motor1[i].value(step[i])
-#                 utime.sleep(0.001)
+
+                motor2[i].value(step[3-i])
+                utime.sleep(0.001)
+
 
 def left_middle_axis(multiplier):
     # Motor 1
@@ -68,13 +70,9 @@ def left_middle_axis(multiplier):
             for i in range(len(motor1)):
                 motor1[i].value(step[i])
                 utime.sleep(0.001)
-    
-#     # Motor 2. Not Real yet
-#     for x in range(513 * multiplier): # 6cm diameter wheel, circum. is 18.85 cm
-#         for step in backward_seq:
-#             for i in range(len(motor2)):
-#                 motor1[i].value(step[i])
-#                 utime.sleep(0.001)
+
+                motor2[i].value(step[i])
+                utime.sleep(0.001)
 
 def right_middle_axis(multiplier):
     # Motor 1
@@ -83,27 +81,6 @@ def right_middle_axis(multiplier):
             for i in range(len(motor1)):
                 motor1[i].value(step[i])
                 utime.sleep(0.001)
-    
-#     # Motor 2. Not Real yet
-#     for x in range(513 * multiplier): # 6cm diameter wheel, circum. is 18.85 cm
-#         for step in forward_seq:
-#             for i in range(len(motor2)):
-#                 motor1[i].value(step[i])
-#                 utime.sleep(0.001)
 
-def custom_move(multiplier, speed, motor_1_rot, motor_2_rot):
-    # Motor 1
-    for x in range(ticks_per_icnh * multiplier): # 6cm diameter wheel, circum. is 18.85 cm
-        for step in motor_1_rot:
-            for i in range(len(motor1)):
-                motor1[i].value(step[i])
-                utime.sleep(0.001*speed)
-    
-#     # Motor 2. Not Real yet
-#     for x in range(513 * multiplier): # 6cm diameter wheel, circum. is 18.85 cm
-#         for step in motor_2_rot:
-#             for i in range(len(motor2)):
-#                 motor1[i].value(step[i])
-#                 utime.sleep(0.001*speed)
-
-###################################
+                motor2[i].value(step[i])
+                utime.sleep(0.001)
