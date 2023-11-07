@@ -30,12 +30,12 @@ def open_socket(pico_ip):
 def webpage():
     html = open("./index.html", "r")
     html_data = html.read()
-    html_data = html_data.replace('{m1_state}', m1)
-    html_data = html_data.replace('{m2_state}', m2)
-    html_data = html_data.replace('{s_state}', s)
-    html_data = html_data.replace('{tbot_state}', tbot)
-    html_data = html_data.replace('{p_state}', p)
-    html_data = html_data.replace('{Console_Feed}', con_f)
+#     html_data = html_data.replace('{m1_state}', m1)
+#     html_data = html_data.replace('{m2_state}', m2)
+#     html_data = html_data.replace('{s_state}', s)
+#     html_data = html_data.replace('{tbot_state}', tbot)
+#     html_data = html_data.replace('{p_state}', p)
+#     html_data = html_data.replace('{Console_Feed}', con_f)
     return html_data
 
 def style():
@@ -58,7 +58,7 @@ def serve(connection):
         elif request == '/draw3?':
             draw3()
         elif request == '/ieee_logo?':
-            ieee_logo()
+            ieee_logo(5)
         print(request)
         html = webpage()
         #css = style()
@@ -71,7 +71,7 @@ def draw1():
     tbot = "RUNNING"
     p = "Draw 1"
     forward(10)
-    backward(5)
+    #backward(5)
     tbot = "IDLE"
     p = "NONE"
     
@@ -167,3 +167,4 @@ try:
     serve(connection)
 except KeyboardInterrupt:
     machine.reset()
+

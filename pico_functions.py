@@ -1,9 +1,10 @@
 from machine import Pin, PWM
 import utime
+from time import sleep
 
 motor1 = [
-    Pin(15, Pin.OUT),
     Pin(14, Pin.OUT),
+    Pin(15, Pin.OUT),
     Pin(16, Pin.OUT),
     Pin(17, Pin.OUT),
     ]
@@ -48,22 +49,22 @@ def pendown():
 
 def forward(multiplier):
     global con_f
-    con_f = multiplier + " Forwards"
-    # Motor 1
+    con_f = str(multiplier) + " Forwards"
+
     for x in range(ticks_per_icnh * multiplier): # 6cm diameter wheel, circum. is 18.85 cm
         for step in forward_seq:
 
             for i in range(len(motor1)):
                 motor1[i].value(step[i])
-                utime.sleep(0.001)
+                sleep(0.00049999)
 
                 motor2[i].value(step[3-i])
-                utime.sleep(0.001)
+                sleep(0.00049999)
     con_f = ""
 
 def backward(multiplier):
     global con_f
-    con_f = multiplier + " Backwards"
+    con_f = str(multiplier) + " Backwards"
     # Motor 1
     for x in range(ticks_per_icnh * multiplier): # 6cm diameter wheel, circum. is 18.85 cm
         for step in backward_seq:
@@ -78,7 +79,7 @@ def backward(multiplier):
 
 def left_middle_axis(multiplier):
     global con_f
-    con_f = multiplier + " Left"
+    con_f = str(multiplier) + " Left"
     # Motor 1
     for x in range(ticks_per_icnh * multiplier): # 6cm diameter wheel, circum. is 18.85 cm
         for step in forward_seq:
@@ -92,7 +93,7 @@ def left_middle_axis(multiplier):
 
 def right_middle_axis(multiplier):
     global con_f
-    con_f = multiplier + " Right"
+    con_f = str(multiplier) + " Right"
     # Motor 1
     for x in range(ticks_per_icnh * multiplier): # 6cm diameter wheel, circum. is 18.85 cm
         for step in backward_seq:
