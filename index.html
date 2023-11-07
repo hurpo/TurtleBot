@@ -178,6 +178,8 @@
     </div>
 
     <script>
+        let socket = WebSocket("wss://192.168.193.54")
+
         let m1, m2, s, tbot, p, runtime;
         let con = "{Console_Feed}";
         m1 = 0;
@@ -208,18 +210,28 @@
 
 
         function update_values() {
-            document.getElementById("m1_state").innerHTML = m1;
-            document.getElementById("m2_state").innerHTML = m2;
-            document.getElementById("s_state").innerHTML = s;
-            document.getElementById("tbot_state").innerHTML = tbot;
-            document.getElementById("p_state").innerHTML = p;
-            document.getElementById("rt").innerHTML = runtime + " s";
+            fetch("./data")
+            .then(response => response.json())
+            .then(data => {
+            document.getElementById("m1_state").innerHTML = data.m1;
+            document.getElementById("m2_state").innerHTML = data.m2;
+            document.getElementById("s_state").innerHTML = data.s;
+            document.getElementById("tbot_state").innerHTML = data.tbot;
+            document.getElementById("p_state").innerHTML = data.p;
+            //document.getElementById("rt").innerHTML = runtime + " s";
+            });
+            // document.getElementById("m1_state").innerHTML = m1;
+            // document.getElementById("m2_state").innerHTML = m2;
+            // document.getElementById("s_state").innerHTML = s;
+            // document.getElementById("tbot_state").innerHTML = tbot;
+            // document.getElementById("p_state").innerHTML = p;
+            // document.getElementById("rt").innerHTML = runtime + " s";
 
-            time_keep() 
-            update_console()
+            // time_keep() 
+            // update_console()
         }
     
-        window.setInterval(update_values, 1000);
+        setInterval(update_values, 1000);
     </script>   
     
 </body>

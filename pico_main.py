@@ -1,5 +1,6 @@
 import network
 import socket
+import json
 import utime
 from machine import Pin, PWM
 from pico_functions import *
@@ -59,6 +60,9 @@ def serve(connection):
             draw3()
         elif request == '/ieee_logo?':
             ieee_logo(5)
+        elif request == '/data':
+            response = {'m1': m1,'m2': m2, "s": s, "tbot": tbot, "p": p}
+            client.send(json.dumps(response))
         print(request)
         html = webpage()
         #css = style()
