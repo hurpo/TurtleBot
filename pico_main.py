@@ -52,6 +52,7 @@ def serve(connection):
             request = request.split()[1]
         except IndexError:
             pass
+        print(request)
         if request == '/draw1?':
             draw1()
         elif request == '/draw2?':
@@ -60,13 +61,13 @@ def serve(connection):
             draw3()
         elif request == '/ieee_logo?':
             ieee_logo(5)
-        elif request == '/data':
+        if request == '/data':
             response = {'m1': m1,'m2': m2, "s": s, "tbot": tbot, "p": p}
             client.send(json.dumps(response))
-        print(request)
-        html = webpage()
+        else:
         #css = style()
-        client.send(html)
+            html = webpage()
+            client.send(html)
         #client.send(css)
         client.close()
 

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <title>Turtle Bot Control Hub</title>
     <style type="text/css">
@@ -178,8 +179,6 @@
     </div>
 
     <script>
-        let socket = WebSocket("wss://192.168.193.54")
-
         let m1, m2, s, tbot, p, runtime;
         let con = "{Console_Feed}";
         m1 = 0;
@@ -210,7 +209,7 @@
 
 
         function update_values() {
-            fetch("./data")
+            fetch("/data")
             .then(response => response.json())
             .then(data => {
             document.getElementById("m1_state").innerHTML = data.m1;
@@ -235,4 +234,4 @@
     </script>   
     
 </body>
-
+</html>
