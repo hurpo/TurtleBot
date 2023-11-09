@@ -48,7 +48,10 @@ tbot = "IDLE"
 p = "NONE"
 con_f = ""
 
-turning_slope = (53/1875)
+bot_diameter = 4.5
+bot_cir = 2 * 3.14 * (bot_diameter/2)
+
+turning_slope = bot_cir/360
 wheel_r = 1.75
 wheel_c = 2 * 3.14 * wheel_r
 ticks_per_icnh = (513) / wheel_c
@@ -141,4 +144,5 @@ def right_middle_axis(turn_degrees):
                 motor2[i].value(step[i])
                 utime.sleep(cycle_speed)
     con_f = ""
+
 
