@@ -14,12 +14,21 @@ def connect():
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
     wlan.connect(ssid, password)
-    while wlan.isconnected() == False:
+    time_limit = 10
+    while (wlan.isconnected() == False) and time_limit > 0:
         print("Waiting for connection...")
         utime.sleep(1)
-    pico_ip = wlan.ifconfig()[0]
-    print("Successful connection with " + str(pico_ip))
-    return pico_ip
+        led_waiting()
+        time_limit -= 1
+    if time_limit == 0:
+        print("Took too long, trying again.")
+        led_failed()
+        return connect()
+    else:
+        pico_ip = wlan.ifconfig()[0]
+        print("Successful connection with " + str(pico_ip))
+        led_on()
+        return pico_ip
 
 def open_socket(pico_ip):
     address = (pico_ip, 80)
@@ -72,30 +81,38 @@ def serve(connection):
         client.close()
 
 def draw1():
-    global tbot, p
-    tbot = "RUNNING"
-    p = "Draw 1"
-    forward(10)
-    #backward(5)
-    tbot = "IDLE"
-    p = "NONE"
+#     global tbot, p
+#     tbot = "RUNNING"
+#     p = "Draw 1"
+    pendown()
+#     left_middle_axis(360)
+#     penup()
+#     #backward(5)
+#     tbot = "IDLE"
+#     p = "NONE"
     
 def draw2():
-    global tbot, p
-    tbot = "RUNNING"
-    p = "Draw 2"
-    forward(5)
-    backward(5)
-    forward(5)
-    tbot = "IDLE"
-    p = "NONE"
+    penup()
+#     global tbot, p
+#     tbot = "RUNNING"
+#     p = "Draw 2"
+#     forward(5)
+#     backward(5)
+#     forward(5)
+#     tbot = "IDLE"
+#     p = "NONE"
 
 def draw3():
     global tbot, p
     tbot = "RUNNING"
     p = "Draw 3"
+    penup()
+    forward(3)
+    pendown()
+    backward(3)
+    left_middle_axis(90)
     forward(2)
-    backward(7)
+    penup()
     tbot = "IDLE"
     p = "NONE"
 
@@ -172,4 +189,6 @@ try:
     serve(connection)
 except KeyboardInterrupt:
     machine.reset()
+
+
 
