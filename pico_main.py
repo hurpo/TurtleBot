@@ -40,12 +40,6 @@ def open_socket(pico_ip):
 def webpage():
     html = open("./index.html", "r")
     html_data = html.read()
-#     html_data = html_data.replace('{m1_state}', m1)
-#     html_data = html_data.replace('{m2_state}', m2)
-#     html_data = html_data.replace('{s_state}', s)
-#     html_data = html_data.replace('{tbot_state}', tbot)
-#     html_data = html_data.replace('{p_state}', p)
-#     html_data = html_data.replace('{Console_Feed}', con_f)
     return html_data
 
 def style():
@@ -69,7 +63,7 @@ def serve(connection):
         elif request == '/draw3?':
             draw3()
         elif request == '/ieee_logo?':
-            ieee_logo(5)
+            ieee_logo(0.5)
         if request == '/data':
             response = {'m1': m1,'m2': m2, "s": s, "tbot": tbot, "p": p}
             client.send(json.dumps(response))
@@ -80,41 +74,17 @@ def serve(connection):
         #client.send(css)
         client.close()
 
-def draw1():
-#     global tbot, p
-#     tbot = "RUNNING"
-#     p = "Draw 1"
+def pendown_test():
     pendown()
-#     left_middle_axis(360)
-#     penup()
-#     #backward(5)
-#     tbot = "IDLE"
-#     p = "NONE"
     
-def draw2():
+def penup_test():
     penup()
-#     global tbot, p
-#     tbot = "RUNNING"
-#     p = "Draw 2"
-#     forward(5)
-#     backward(5)
-#     forward(5)
-#     tbot = "IDLE"
-#     p = "NONE"
 
-def draw3():
-    global tbot, p
-    tbot = "RUNNING"
-    p = "Draw 3"
-    penup()
-    forward(3)
+def square():
     pendown()
-    backward(3)
-    left_middle_axis(90)
-    forward(2)
-    penup()
-    tbot = "IDLE"
-    p = "NONE"
+    for i in range(4):
+        forward(3)
+        left_middle_axis(90)
 
 def ieee_logo(a):
     global tbot, p
@@ -181,7 +151,6 @@ def ieee_logo(a):
             left_middle_axis(90)
     tbot = "IDLE"
     p = "NONE"
-    
 
 try:
     pico_ip = connect()
@@ -189,6 +158,3 @@ try:
     serve(connection)
 except KeyboardInterrupt:
     machine.reset()
-
-
-

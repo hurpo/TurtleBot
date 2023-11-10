@@ -144,5 +144,3 @@ def right_middle_axis(turn_degrees):
                 motor2[i].value(step[i])
                 utime.sleep(cycle_speed)
     con_f = ""
-
-
