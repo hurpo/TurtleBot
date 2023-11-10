@@ -56,12 +56,12 @@ def serve(connection):
         except IndexError:
             pass
         print(request)
-        if request == '/draw1?':
-            draw1()
-        elif request == '/draw2?':
-            draw2()
-        elif request == '/draw3?':
-            draw3()
+        if request == '/pen_down?':
+            pendown_test()
+        elif request == '/pen_up?':
+            penup_test()
+        elif request == '/square?':
+            square()
         elif request == '/ieee_logo?':
             ieee_logo(0.5)
         if request == '/data':
