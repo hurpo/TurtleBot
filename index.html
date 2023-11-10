@@ -71,37 +71,12 @@
             display: inline-block;
         }
 
-        .console {
-            font-family: 'Courier New', Courier, monospace;
-            border: 1px solid #4aff86;
-            border-radius: 5%;
-            text-align: left;
-            width: 400px;
-            height: 300px;
-            color: beige;
-        }
-
-        .left_info {
-            float: left;
-            border: 1px solid #4aff86;
-            width: 40%;
-            margin-left: 6.66%;
-        }
-
-        .right_control {
-            float: right;
-            border: 1px solid #4aff86;
-            width: 40%;
-            margin-right: 6.66%;
-        }
-
-        .table_name {
-            background-color: #4aff86;
-            color: #1f1445;
-        }
-
-        .time_keep {
-            width: 280px;
+        .container {
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 2.5%;
+            margin-bottom: 2.5%;
+            width: 60%;
         }
 
     </style>
@@ -110,7 +85,7 @@
     <h1 style="display: inline-flex; transform: translateY(-50px);" >Turtle Bot Control Hub</h1>
 </header>
 <body>
-    <div>
+    <div class="container">
         <form class = "child_inline" action="./pen_down">
             <input style="font-size: 30px;" type="submit" value="Pen Down"/>
         </form>
@@ -123,7 +98,12 @@
         <form class = "child_inline" action="./ieee_logo">
             <input style="font-size: 30px;" type="submit" value="IEEE Logo"/>
         </form>
+        <form class = "child_inline" action="./turtle">
+            <input style="font-size: 30px;" type="submit" value="Turtle"/>
+        </form>
     </div> 
+    <div class="container">
+    </div>
     
 </body>
 </html>
