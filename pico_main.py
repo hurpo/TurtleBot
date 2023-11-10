@@ -66,6 +66,12 @@ def serve(connection):
             ieee_logo(0.5)
         elif request == '/turtle?':
             turtle(0.5)
+        # connect index buttons to functions here:
+        # format like this
+
+        # elif request == '/(name)?':
+        # name(your value for a, probably around 0.5 to 1 inch)
+
         html = webpage()
         client.send(html)
         client.close()
@@ -204,6 +210,11 @@ def turtle(a):
     forward(.25*a)
     right_middle_axis(90)
     forward(.65*a)
+
+# put new drawing functions here, like this:
+
+# def name(a):
+#     **instructions**
 
 try:
     pico_ip = connect()
