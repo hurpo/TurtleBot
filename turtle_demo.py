@@ -121,11 +121,48 @@ def turtle(a):
      t.right(90)
      t.forward(.65*a)
 
-     
+def osu(a):
+    t.pendown()
+    # O
+    for i in range(3):
+        t.forward(a)
+        t.left(90)
+    t.forward(a)
+    # S
+    t.penup()
+    t.forward(a/2)
+    t.pendown()
+    t.forward(a)
+    t.left(90)
+    t.forward(a/2)
+    t.left(90)
+    t.forward(a)
+    t.right(90)
+    
+    t.forward(a/2)
+    t.right(90)
+    t.pendown()
+    t.forward(a)
+
+    t.penup()
+    t.forward(a/2)
+    t.pendown()
+    t.right(90)
+    t.forward(a)
+    t.left(90)
+    t.forward(a)
+    t.left(90)
+    t.forward(a)
+
+
+    
+
+
+        
      
      
      
 
-turtle(40)
+osu(40)
 
 t.screen.mainloop()

@@ -5,8 +5,10 @@ import utime
 from machine import Pin, PWM
 from pico_functions import *
 
+# Name and Password of the wifi
 ssid = "SkylarsHotspot"
 password = "wifiPassword1"
+
 
 ##### Turtle Bot Online Control Hub Functions #####
 
